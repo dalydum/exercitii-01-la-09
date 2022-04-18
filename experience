@@ -1,0 +1,1527 @@
+# Creati o clasa Rectangle, care are 2 atribute width si length, instantiate in cadrul constructorului cu 2 valori integer.
+# a) Pentru clasa respectiva creati o functie get_area care returneaza aria dreptunghiului.
+# b) Creati si o functie display care afiseaza dreptunghiul folosind un parametru optional pentru a desena, in cazul in care
+# parametrul nu este dat, se foloseste ca default caracterul *.
+# Exemplu de rulare:
+# new_rectangle = Rectange(2, 4)
+# print(new_rectangle.get_area()) => 8
+# new_rectangle.display() => ****     sau: new_rectangle('#') => ####
+#                            ****                                ####
+class Rectangle:
+    def __init__(self, width, lenght):
+        self.width = width
+        self.lenght = lenght
+
+    def get_area(self):
+        return self.width * self.lenght
+
+    def display(self, character = '*'):
+        for i in range(self.width):
+            print(self.lenght * character)
+
+new_rectangle = Rectangle(2, 4)
+print(new_rectangle.get_area())
+new_rectangle.display()
+ 17
+intro/data_types.py
+@@ -0,0 +1,17 @@
+#String = sir de caractere delimitat de ' '
+
+#string
+marca= 'Dacia'
+model='1310'
+
+#int (intiger)
+an_fabricatie=1987
+
+#float - nr zecimal
+pret = 2300.500
+
+#boolean (cu majuscula)
+inmatriculata= False
+
+print(marca.upper()) #ruleaza in majuscule
+print(len(marca))    #dimensiunea unui string
+ 30
+intro/dict.py
+@@ -0,0 +1,30 @@
+lista_goala=[]
+dict_gol={}
+
+#declaram si initializam un dict
+note_elevi={'Gigel': 10, 'Costel': 9, 'Ana': 10}
+
+#adaugam elem
+note_elevi['Sebi']=7
+
+#printam dict
+print(note_elevi)
+
+#aflam note
+print(note_elevi['Gigel'])
+print(note_elevi.get('Gigel'))
+
+#actualizam valori
+note_elevi['Costel']=10
+print(note_elevi)
+
+#aflam dimensiunea
+print(len(note_elevi))
+
+#sterg valori
+note_elevi.pop('Gigel')
+print(note_elevi.get('Gigel', 'nu mai avem acest elev'))
+print(note_elevi)
+
+#returneaza doar cheile
+print(note_elevi.keys())
+ 24
+intro/for.py
+@@ -0,0 +1,24 @@
+#dalmatienii
+for i in range(1,102):
+    print(f'Dalmatianul cu nr {i}' )
+
+# dalmatienii din 2 in 2
+for i in range(1,102, 2):    #al 3-lea - pasul (din 2 in 2)
+    print(f'Dalmatianul cu nr {i}' )
+
+
+numere=[3, 7, 10, 20, 30]
+#parcurgere liste cu for prin intermediul indexului
+for i in range(0, len(numere)):
+    print(f'indexul curent este {i}')
+    print(f'numarul curent este {numere[i]}')
+
+# for each
+s=0
+
+for numar in numere:
+    print(f'Numarul curent este {numar}')
+    s=s+numar
+print (f'suma este {s}')
+
+# de cate ori apare 3 in [3, 2, 3, 5, 3, 3]
+ 49
+intro/functii.py
+@@ -0,0 +1,49 @@
+#functie(metoda)=logiva delimitata care poate fi refolositao #
+#functie simpla care ne prinreaza ceva pe ecran si nu returneaza nici un raspuns
+#nu are parametri
+#nu putem folosi spatii in nume
+#nu putem defini o functie in alta functie
+
+def printGreeting():
+    print ('Buna ziua! Bine ati venit !')
+
+def printGreetingByName(nume,prenume):
+    print(f'Buna ziua {nume} {prenume} !')
+
+def mediaNr(a, b, c):
+    return(a+b+c)/3
+
+def piValue():
+    return 3.14
+
+
+#exercitiu
+#daca pers e majora , altfel False
+def verificareMajor(varsta):
+    if varsta>=18:
+        return True
+    else:
+        return False
+
+
+
+
+
+
+#zona de apelare (desktop)
+printGreeting()
+printGreeting()
+printGreetingByName('Ghiurco', 'Cristian')
+printGreetingByName('Ghiurco', 'Ramona')
+printGreetingByName('Ghiurco', 'Melissa')
+print(mediaNr(3,4,3))
+print(piValue())
+
+print(verificareMajor(18))
+
+#se ia varsta utilizatorului
+age= int(input('introduceti varsta dvs'))
+if verificareMajor(age):
+    print('Cont creat, bine ai venit in aplicatie')
+else:
+    print('nu ai varsta minima necesara(18) pt a paria ')
+ 1
+intro/hello_world.py
+@@ -0,0 +1 @@
+print ('Hello World !')
+ 55
+intro/if_else.py
+@@ -0,0 +1,55 @@
+piesa_faina=True
+print('pornim radio')
+if piesa_faina==True:
+    print('dam mai tare')
+    print('fredonam')
+print('oprim radio')
+
+# if else
+#daca nr este par printam acest lucru
+#altfel printam impar
+
+nr=3
+# ce inseamna par? se imparte exact la 2
+# ce inseamna case imparte la 2? ne da restul 0
+if nr % 2 == 3:
+    print('nr par')
+else:
+    print('impar')
+
+# # este un nr pozitiv?
+# if nr>0:
+#     print('pozitiv')
+# else:
+#     print('nr nu este pozitiv')
+#
+# # if ,else if, else
+# #cum ne saluta robotelul in f de ora?
+# #luam date de la tastatura
+# #ne asiguram ca sunt transformate din str in int
+# ora = int(input('introdu ora '))
+# if ora<0:
+#     print('ora negativa')
+# elif ora<=11:
+#     print('buna dimineata')
+# elif ora<=18:
+#     print('buna ziua')
+# elif ora<=21:
+#     print('buna seara')
+# elif ora<=24:
+#     print('noapte buna')
+# else:
+#     print('ora invalida. ora mai mare decat 24')
+
+#PENTRU  A COMENTA O SECTIUNE '' CTRL+'/'
+
+#robotel telefonIC
+optiunea=int(input('alege o optiune'))
+if optiunea==0:
+    print('meniu anterior')
+elif optiunea ==1:
+    print('ati ales ro')
+elif optiunea==2:
+    print('ati ales en')
+else:
+    print('nu am identificat optiunea, mai incearca! ')
+ 76
+intro/int4.py
+@@ -0,0 +1,76 @@
+# # Given the lists: lst1 = ["Black", "White", "Red"] and lst2 = ["Red", "Green"].
+# # What do I write to get: "Black", "White" ? Using some relation between the 2 lists
+# lst1 = ["Black", "White", "Red"]
+# lst2 = ["Red", "Green"]
+#
+# print(set(lst1) - set(lst2))
+#
+#
+# # Remove the duplicates from this list please! lst = [1,2,3,3,1,1,4,5,5] => [1,2,3,4,5]
+# lst = [1,2,3,3,1,1,4,5,5]
+# lst_n = []
+# for n in lst:
+#     if n not in lst_n:
+#         lst_n.append(n)
+# print(lst_n)
+# print(s)
+# print(list(set(lst)))
+
+
+# Sa da o lista cu nume names_list = ["Valentina", "Raluca", Cristian", "Arthur", "Vlad", "Florina", "Dan", "Tudor", "Gabi"].
+# Iterati lista, verificati daca numele incepe cu litera 'V', in caz afirmativ, sariti peste numele respectiv.
+# In caz contrar afisati o structura de date formata din nume si indexul din lista unde a fost intalnit.
+
+# names_list = ["Valentina", "Raluca", "Cristian", "Arthur", "Vlad", "Florina", "Dan", "Tudor", "Gabi"]
+# # V1
+# for nume in names_list:
+#     if nume[0] == "V":
+#         continue
+#     print(nume, names_list.index(nume))
+# #V2
+# for idx_nume, nume in enumerate(names_list):
+#     if nume[0] == "V":
+#         continue
+#     print(nume, idx_nume)
+#
+# Se dau 2 numere naturale a si b introduse de la tastatura, cu proprietatea ca a<b.
+# Sa se construiasca lista formata din numerele din intervalul [a,b] care sunt divizibile fie cu 3 fie cu 17.
+# Daca se gaseste un numar care este divizibil cu ambele, se intrerupe executia programului.
+# Daca se ajunge la capatul intervalului se afiseaza mesajul "Ati ajuns la finalul intervalului" (folositi`va de conditia invatata adineaori)
+#
+# a = int(input('Introduceti inceputul intervalului'))
+# b = int(input('Introduceti sfarsitul intervalului'))
+# lst_nr = []
+# for nr in range(a,b):
+#     if (nr % 3 == 0) and (nr % 17 == 0):
+#         break
+#     elif (nr % 3 == 0) or (nr % 17 == 0):
+#         lst_nr.append(nr)
+# else:
+#     print('Ati ajuns la finalul intervalului')
+# print (lst_nr)
+#
+# # Se da un numar n=15, scrieti o bucla care printeaza numarul si il decrementeaza
+# # pana cand acesta atinge 0. Decrementarea se face astfel:
+# # - cu 2 daca numarul e divizibil cu 5;
+# # - cu 3 daca e numar par;
+# # - cu 1 daca e numar impar.
+#
+# n = 15
+# while n>0 :
+#     print(n)
+#     if n % 5 == 0:
+#         n -=2
+#     elif n % 2 ==0:
+#         n -=3
+#     else:
+#         n-=1
+
+
+# Print all the natural numbers lower than a keyboard inputed one. If the number is not natural, raise an exception!
+# Test with 15 then test with 'qwe'
+a = int(input('introdu nr'))
+for nr in range(a):
+if a
+
+
+ 83
+intro/intalnirea 1/tema_01.py
+@@ -0,0 +1,83 @@
+# ex 1 - O variabilă este un nume pentru un loc din memoria computerului în care stocam unele date
+# ex 2
+s ='tema1'
+i = 32
+b = False
+f = 3.14
+
+# ex 3
+print(type(s))
+print(type(i))
+print(type(b))
+print(type(f))
+
+# ex 4    rotunjim un float
+f=round(f)
+print(round(f))
+
+# ex 5
+print('Am facut ' + s)
+print(f'{i} este nr meu preferat')
+print(f'Daca b nu e True atunci e {b}')
+print(f'pi are valoarea {f}')
+
+# ex 6    afiseaza 'Numele complet are x caractere'
+numele = 'Ghiurco'
+prenumele = 'Cristi'
+print(f'Numele complet are ' + str(len(numele + prenumele)) + ' caractere')
+
+# ex 7  aria dreptunghiului
+L = 15
+l = 30
+x = L * l
+print(f'Aria dreptunghiului este {x} ')
+
+# ex 8   afiseaza stringul fara ultimele x caractere
+d = 'Coral is either the stupidest animal or the smartest rock'
+x1 = 10
+print(d[:-(x1)])
+
+# ex 9   declaram primele 5 si ultimele 5 caractere
+d1 = (d[:5] + d[-5:])
+print(d1)
+
+# ex 10    afisati de cate ori apare cuvantul 'the'
+print(d.count('the'))
+
+# ex 11    inlocuieste the cu THE peste tot
+print(d.replace('the' , 'THE'))
+
+# ex 12    salveaza intr-o variabila si afiseaza indexul de start al cuvantului rock
+print(len(d))
+k = d.find('rock') +1
+print(k)
+print(d[:53])     # afiseaza tot stringul pana la acest cuvant
+
+# ex 13   declarati o alta variabila de tip string in care sa le adaugati folosind tehnica de formatare a unui string
+n = (f'{s}  {i}  {b}  {f}')
+print(n)
+
+# ex 14 afisati doar numerele pare ; afisati doar numerele impare
+v = '0123456789'
+print(v[::2])
+print(v[1::2])
+
+# ex 15     Aveti un dreptunghi, declarati 2 variabile pe nume “lungime” si “latime”, ele trebuie sa primeasca ca si input de la tastatura dimensiunile.
+          # Printati aria calculata a dreptunghilui
+lungime = int(input('introdu lungimea ' ))
+latime = int(input('introdu latimea '))
+aria = lungime * latime
+print (aria)
+
+# ex 16    citeste de la tastatura un string de dimensiune impara
+         # afiseaza caracterul din mijloc
+w = input('Scrie string : ')
+print(w[(len(w)-1)//2:(len(w)+2)//2])
+
+
+# ex 17   folosind o singura linie de cod citeste un string de la tastatura (ex: 'alabala portocala')
+# si salveaza fiecare cuvant intr-o variabila
+# acum printeaza ambele variabile pentru verificare
+
+
+
+ 142
+intro/intalnirea_2/tema_02.py
+@@ -0,0 +1,142 @@
+# ex-01 Instructiunea if se foloseste pentru a executa o instructiune sau o secventa de instructiuni numai cand valoare logica a unei expresii este adevarata
+# ex-02 Verifica si afiseaza daca x este numar pozitiv sau nu
+# ex-03 Verifica si afiseaza daca x este numar pozitiv, negativ sau neutru
+try:
+    x = int(input('Type number : '))
+except:
+    print('is not a number ')
+else:
+    if x > 0:
+        print('numar pozitiv')
+    elif x < 0:
+        print('numar negativ')
+    else:
+        print('numarul e neutru ')
+
+#ex_04 Verifica si afiseaza daca x este intre -2 si 13
+x = int(input('Type number : '))
+if x >= -2 and x <= 13:
+    print('nr corect')
+else:
+    print('nr nu se situeaza intre -2 si 13')
+
+#ex_05 Verifica si afiseaza daca diferenta dintre x si y este mai mica de 5
+x = 10
+y = 3
+if x-y < 5:
+    print('diferenta mai mica decat 5')
+
+else:
+    print('try again !')
+
+#ex_06 Verifica daca x NU este intre 5 si 27. (a se folosi ‘not’)
+
+x = int(input('introduceti numarul: '))
+if not(x >= 5 and x <= 27):
+    print('try again !')
+else:
+    print('nr intre 5 si 27')
+
+#ex_07 x si y (int)
+# Verifica si afiseaza daca sunt egale, daca nu afiseaza care din ele este mai mare
+x = 4
+y = 5
+if x == y:
+    print('x egal cu y')
+elif x > y:
+    print(x)
+else:
+    print(y)
+
+#ex_08 X, y, z - laturile unui triunghi
+# Afiseaza daca triunghiul este isoscel, echilateral sau oarecare
+x = 3
+y = 3
+z = 2
+if x == y and x == z and y == z :
+    print('triunghi echilateral')
+elif x !=y and x != z and y != z :
+    print('triunghi oarecare')
+else:
+    print('triunghi isoscel')
+
+
+#ex_09 Citeste o litera de la tastatura
+#Verifica si afiseaza daca este vocala sau nu
+x = input('Introdu litera: ')
+vocale = ('a', 'e', 'i', 'o', 'u', 'y')
+if x.lower() in vocale:
+    print ('Vocala !')
+else:
+    print ('Nu este o vocala !')
+
+# ex_10 Transforma si printeaza notele din sistem românesc in sistem american dupa cum urmeaza
+# Peste 9 => A
+# Peste 8 => B
+# Peste 7 => C
+# Peste 6 => D
+# Peste 4 => E
+# 4 sau sub => F
+
+nota = int(input('Nota este : '))
+if nota >= 9 and nota <= 10:
+    print('echivalentul in sistem american este A')
+elif nota >= 8 and nota < 9:
+    print('echivalentul in sistem american este B')
+elif nota >=7 and nota < 8:
+    print('echivalentul in sistem american este C')
+elif nota >= 6 and nota < 7:
+    print('echivalentul in sistem american este D')
+elif nota >=4 and nota < 6:
+    print('echivalentul in sistem american este E')
+elif nota < 4:
+    print('echivalentul in sistem american este F')
+else:
+    print('Nota invalida ')
+
+
+#ex_11 Verifica daca x are minim 4 cifre (ex: 7895 are 4 cifre, 10 nu are minim 4 cifre)
+x = input('introdu nr :')
+if len(x) >= 4 :
+    print('Nr are minim 4 cifre ')
+elif x[0] == 0:            #vroiam sa fac o completare
+    print('mai incearca !')     #aici nu reusesc, in caz ca nr introdus de la tastatura incepe cu 0
+else:
+    print('mai incearca !')
+
+
+#ex_12 .Verifica daca x are exact 6 cifre
+x = input('introdu nr :')
+if len(x) == 6:
+    print('Nr are 6 cifre')
+
+#ex_13 Verifica daca x este numar par sau impar
+x = int(input('introdu nr :'))
+if x % 2 == 0 :
+    print('nr par')
+else:
+    print('nr impar')
+
+#ex_14 x, y, z (int) Afiseaza care este cel mai mare dintre ele?
+x = int(input('introdu x :'))
+y = int(input('introdu y :'))
+z = int(input('introdu z :'))
+if x > y and x > z:
+    print (f'cel mai mare numar este {x}')
+elif y > x and y > z:
+    print (f'cel mai mare numar este {y}')
+else:
+    print (f'cel mai mare numar este {z}')
+
+
+#ex_15 X, y, z - reprezinta unghiurile unui triunghi Verifica si afiseaza daca triunghiul este valid sau nu
+x = int(input('Introduceti unghiul x: '))
+y = int(input('Introduceti unghiul y: '))
+z = int(input('Introduceti unghiul z: '))
+
+if x + y + z < 180 :           # suma unghiurilor nu trebuie sa depaseasca 179° ca sa fie un triunghi
+    print ('Triunghi valid')
+else:
+    print('Triunghiul nu este valid')
+
+# la ex 16 nu prea am inteles
+ 109
+intro/intalnirea_3/tema_3.py
+@@ -0,0 +1,109 @@
+# ex_1. Declara o lista note_muzicale in care sa pui do re mi etc pana la do
+# a)	Afiseaz-o
+# b)	Inverseaza ordinea folosind slicing si suprascrie aceasta lista
+# c)	Printeaza varianta actuala (inversata)
+# d)	Pe aceasta lista, aplica o metoda care banuiesti ca face acelasi lucru, adica sa ii inverseze ordinea. (Nu trebuie sa o suprascrii in acest caz, deoarece metoda face asta automat)
+# e)	Printeaza varianta actuala a listei. Practic ai ajuns inapoi la varianta initiala
+
+note_muzicale1 = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si', 'do']
+print(note_muzicale1)
+note_muzicale2 = note_muzicale1[::-1]
+print(note_muzicale2)
+note_muzicale2.reverse()
+print(note_muzicale2)
+
+# ex_2 De cate ori apare ‘do’?
+print(note_muzicale1.count('do'))
+
+# ex_3 Avand 2 liste, [3, 1, 0, 2] si [6, 5, 4]
+# Gasiti 2 variante sa le uniti intr-o singura lista
+lista_1 = [3, 1, 0, 2]
+lista_2 = [6, 5, 4]
+lista = lista_1 + lista_2
+print(lista)
+lista_1.extend(lista_2)
+print(lista_1)
+
+# ex_4 Sortati si afisati lista generata la ex anterior
+# Stergeti numarul 0 folosind o functie
+# Afisati iar lista
+lista.sort()
+print(lista)
+lista.remove(0)
+print(lista)
+
+# ex_5 Folosind un if verificati lista generata la ex3 si afisati
+# -	Lista este goala
+# -	Lista nu este goala
+if len(lista) <= 0:
+    print('Lista este goala.')
+else:
+    print('Lista nu este goala')
+
+# ex_6 Folositi o functie care sa stearga lista de la ex3
+lista.clear()
+print(lista)
+
+# ex_7 Copy paste la ex 5. Verificati inca o data.
+# Acum ar trebui sa se afiseze ca lista e goala
+if len(lista) <= 0:
+    print('Lista este goala.')
+else:
+    print('Lista nu este goala')
+
+# ex_8 Avand dictionarul dict1 = {'Ana' : 8, 'Gigel' : 10, 'Dorel' : 5}
+# Folositi o functie ca sa afisati Elevii (cheile)
+dict1 = {'Ana' : 8, 'Gigel' : 10, 'Dorel' : 5}
+print(dict1.keys())
+
+# ex_9 Printati cei 3 elevi si notele lor
+# Ex: ‘Ana a luat nota {x}’
+# Doar nota o veti lua folosindu-va de cheie
+print(f"Ana a luat nota {dict1['Ana']}")
+print(f"Gigel a luat nota {dict1['Gigel']}")
+print(f"Dorel a luat nota {dict1['Dorel']}")
+
+# ex_10 Dorel a facut contestatie si a primit 6
+# Modificati nota lui Dorel in 6
+# Printati nota dupa modificare
+dict1['Dorel'] = 6
+print(dict1)
+
+# ex_11 Gigel se transfera din clasa
+# Cautati o functie care sa il stearga
+# Vine un coleg nou. Adaugati Ionica, cu nota 9
+# Printati dictionarul schimbat
+dict1.pop('Gigel')
+print(dict1)
+dict1.update({'Ionica' : 9})
+print(dict1)
+
+# ex_12 Set # Adaugati in zilele_sapt ‘luni’  # # Afisati zile_sapt
+
+zile_sapt = {'luni', 'marti', 'miercuri', 'joi', 'vineri', 'sambata', 'duminica'}
+weekend = {'sambata', 'duminica'}
+zile_sapt |= {'luni'}
+print(zile_sapt)     # in set nu se repeta elementul la printare
+
+# ex_13 Folositi un if si verificati daca
+# -	Weekend este un subset al zilelor din sapt
+# -	Weekend nu este un subset al zilelor din sapt
+if zile_sapt & weekend :
+    print('Weekend este un subset al zilelor din sapt')
+else:
+    print('Weekend nu este un subset al zilelor din sapt')
+
+# ex_14 Afisati diferentele dintre aceste 2 seturi (exercitiu 12)
+print(zile_sapt - weekend)
+
+# ex_15 Afisati intersectia elementelor din aceste 2 seturi (exercitiu 12)
+print(zile_sapt & weekend)
+
+# ex_16
+
+
+# ex_17 Se da o lista cu nume de fructe: fruits = ["apple", "banana", "cherry", "kiwi", "mango"] . Returnati lista formata doar din fructele care contin litera ‘e’: ['apple', 'cherry'].
+
+
+# ex_18 Folosindu`va de lista anterioara (fruits) returnati acele fructe care au exact 6 litere.
+
+ 164
+intro/intalnirea_4/tema_4.py
+@@ -0,0 +1,164 @@
+# ex_01 Avand lista
+# a)	Folositi un for ca sa iterati prin toata lista si sa afisati  ‘Masina mea preferata este x’
+# b)	Faceti acelasi lucru cu range-ul listei
+# c)	Faceti acelasi lucru cu un while
+masini = ['Audi', 'Volvo', 'BMW', 'Mercedes', 'Aston Martin', 'Lastun', 'Fiat', 'Trabant', 'Opel']
+for elem in masini:
+    print(f'Masina mea preferata este {elem}')
+print('_______________________________________')
+for x in range(len(masini)):
+    print(f'Masina mea preferata este {masini[x]}')
+print('_______________________________________')
+
+x=len(masini)
+a=0
+while x>0:
+    print(f'Masina mea preferata este {masini[a]}')
+    a+=1
+    x-=1
+print('_______________________________________')
+
+# ex_02 Aceeasi lista
+# Folositi un for else
+# In for
+#    Modificati elementele din lista astfel incat sa fie scrie cu majuscule, exceptand primul si ultimul
+# In else
+#    Printati lista
+masini = ['Audi', 'Volvo', 'BMW', 'Mercedes', 'Aston Martin', 'Lastun', 'Fiat', 'Trabant', 'Opel']
+for masina in range(1, len(masini) - 1):
+    masini[masina] =masini[masina].upper()
+else:
+    print(masini)
+print('_______________________________________')
+
+# ex_03 Aceeasi lista,
+# Vine un cumparator care doreste sa cumpere un Mercedes
+# Iterati prin ea prin for each
+# Daca masina e mercedes (if)
+#    Printam ‘am gasit masina dorita de dvs’
+#    Iesim din ciclu folosind un cuvant cheie care face acest lucru
+# Altfel (else apartine de if, nu de for)
+#    Printam Am gasit masina X. Mai cautam
+masini = ['Audi', 'Volvo', 'BMW', 'Mercedes', 'Aston Martin', 'Lastun', 'Fiat', 'Trabant', 'Opel']
+for elem in masini:
+    if elem=='Mercedes':
+        print('am gasit masina dorita de dvs')
+        break
+    else:
+        print(f'am gasit masina {elem} .Mai cautam')
+print('_______________________________________')
+
+# ex_04 Vine un cumparator bogat dar indecis. Ii vom prezenta toate masinile cu exceptia Trabant si Lastun.
+# Daca masina e Trabant sau Lastun
+#    Folositi un cuvant cheie care sa dea skip la ce urmeaza
+# (nu trebuie else)
+# Printati S-ar putea sa va placa masina x
+for elem in masini:
+    if elem=='Trabant' or elem=='Lastun':
+        continue
+    else:
+        print(f'S-ar putea sa va placa masina {elem}')
+print('_______________________________________')
+
+# ex_05 Modernizati parcul de masini
+# Creati o lista goala, masini_vechi
+# Iterati prin masini
+# Cand gasiti Lastun sau Trabant:
+# -	Salvati aceste masini in masini_vechi
+# -	Suprascrieti-le cu ‘Tesla’ (in lista initiala de masini)
+# Printati Modele vechi: x
+# Modele noi: x
+masini_vechi=[]
+for elem in masini:
+    if elem == 'Trabant' or elem == 'Lastun':
+        masini_vechi.append(elem)
+        masini[masini.index(elem)]='Tesla'
+print(masini_vechi)
+print(masini)
+print('_______________________________________')
+
+# ex_06 Vine un client cu un buget de 15000 euro
+# Prezentati doar masinile care se incadreaza in acest buget
+# Iterati prin dict.items() si accesati masina si pretul
+# Printati Pentru un buget de sub 15000 euro puteti alege masina xLastun
+# Iterati prin lista
+pret_masini = {
+    'Dacia': 6800,
+    'Lastun': 500,
+    'Opel': 1100,
+    'Audi': 19000,
+    'BMW': 23000
+}
+for elem, pret in pret_masini.items():
+    if pret <= 15000:
+        print(elem, pret)
+        print(f'Pentru un buget de sub 15000 euro puteti alege masina {elem}')
+print('_______________________________________')
+
+# ex_07 Avand lista; Iterati prin ea
+# Afisati de cate ori apare 3
+# (nu aveti voie sa folositi count)
+numere = [5, 7, 3, 9, 3, 3, 1, 0, -4, 3]
+n = 0
+for elem in numere:
+    if elem == 3:
+       n = n+1
+print(f'3 apare de {n} ori')
+print('_______________________________________')
+
+# ex_08 Aceeasi lista; Iterati prin ea
+# Calculati si afisati suma numerelor
+# (nu aveti voie sa folositi sum)
+n=0
+for elem in numere:
+    n+=elem
+print(f'suma numerelor este {n}')
+print('_______________________________________')
+
+# ex_09 Aceeasi lista; Iterati prin ea
+# Afisati cel mai mare numar
+# (nu aveti voie sa folositi max)
+n=numere[0]
+for elem in numere:
+    if elem > n:
+        n=elem
+print(f'cel mai mare numar este {n}')
+print('_______________________________________')
+
+# ex_10 Aceeasi lista; Iterati prin ea
+# Daca numarul e pozitiv, inlocuiti-l cu valoarea lui negativa
+# Ex: daca e 3, sa devina -3
+# Afisati noua lista
+numere = [5, 7, 3, 9, 3, 3, 1, 0, -4, 3]
+n = []
+for elem in numere:
+    if elem > 0:
+        elem = -elem
+        n.append(elem)
+print(n)
+print('_______________________________________')
+
+# ex_11 # Iterati prin lista alte_numere
+# # Populati corect celelalte liste
+# # Afisati cele 4 liste la final
+alte_numere = [-5, 7, 2, 9, 12, 3, 1, -6, -4, 3]
+numere_pare = []
+numere_impare = []
+numere_pozitive = []
+numere_negative = []
+for elem in alte_numere:
+    if elem % 2 == 0:
+        numere_pare.append(elem)
+    if elem % 2 != 0:
+        numere_impare.append(elem)
+    if elem >0:
+        numere_pozitive.append(elem)
+    else:
+        numere_negative.append(elem)
+print(f'numere pare : {numere_pare}')
+print(f'numere impare : {numere_impare}')
+print(f'numere pozitive : {numere_pozitive}')
+print(f'numere negative : {numere_negative}')
+print('_______________________________________')
+
+# ex_12 Aceeasi lista; Ordonati crescator lista fara sa folositi sort
+ 66
+intro/intalnirea_5/int_(.py
+@@ -0,0 +1,66 @@
+# Write a function that takes as argument a natural number and prints all numbers between 0 and itself
+def to_number(nr):
+    for elem in range(1, nr):
+        print(elem)
+
+
+to_number(5)
+
+
+# Modify the previous function to return the numbers inside a list instead
+# 1,2,3,4
+def to_number(nr):
+    my_list = []
+    for elem in range(1, nr):
+        my_list.append(elem)
+    return my_list
+
+
+l = to_number(5)  # ar trebui sa returneze [1,2,3,4]
+print(l)
+
+# Write a function that takes as argument a natural number x and an optional argument natural number y
+#(that if not passed, takes as default value 2). The function which will print the result of x to the power y
+# as a verbose f-string: "The result of x={} to the power of y={} is:{} "
+
+def natural(x, y = 2):
+    z = x**y
+    print(f'The result of x={x} to the power of y={y} is:{z}')
+natural(4)
+
+
+
+def func(x, y=2):
+    res = x ** y
+    print(f'The result of x={x} to the power of y={y} is: {res}')
+
+
+func(5, 3)
+
+# Write a function that has one string argument and creates a substring made of the first, middle and last character of the string
+# e.g.:  substring('Michael') => 'Mhl'
+#        substring('Adrian')  => 'Arn' / 'Ain' (either one works)
+def s(name):
+    name_2=name[0]+name[len(name)//2]+name[len(name)-1]
+    print(name_2)
+
+s('Cristi')
+
+# Given 2 strings as arguments s1 and s2, write a function that appends s2 in the middle of s1
+# e.g.:  append_middle('Legendary', 'wait')  => 'Legewaitndary'
+#        append_middle('mama', 'MIA')  =>  'maMIAma'
+
+def append_middle(s1, s2):
+    middle = len(s1)//2
+    result_string = s1[0: middle] + s2 + s1[middle:]
+    print (result_string)
+append_middle('mama', 'MIA')
+append_middle('Legendary', 'wait')
+
+# Write a function that takes any number of string arguments and will return the string formed
+# from the arguments separated by -
+# e.g.: coma_separated('one', 'two', 'three') => 'one-two-three'
+# coma_separated('one', 'two', 'three', 'four', 'five') => 'one-two-three-four-five'
+
+
+
+ 107
+intro/intalnirea_5/tema_05.py
+@@ -0,0 +1,107 @@
+# ex_01 Functie care sa calculeze si sa returneze suma a 2 numere
+def sum(a,b):
+    return a+b
+s1 = sum(7, 9)
+s2 = sum (15, 35)
+print (s1)
+print (s2)
+print('______________________________')
+
+# ex_02 Functie care sa returneze TRUE daca un numar este par, FALSE pt impar
+def par(nr):
+    if nr % 2 == 0:
+        return True
+    else:
+        return False
+nr1 = par(8)
+nr2 = par(9)
+
+print(nr1)
+print(nr2)
+print('______________________________')
+
+# ex_03 Functie care returneaza numarul total de caractere din numele tau complet. (nume, prenume, nume_mijlociu)
+def  name(nume, prenume, nume_mijlociu):
+    return f"Numele complet are {len(nume+prenume+nume_mijlociu)}"
+nume = name('Ghiurco', 'Cristian', 'Mircea')
+print(nume)
+print('______________________________')
+
+# ex_04 Functie care returneaza aria dreptunghiului
+def aria(lungime, latime):
+    return lungime * latime
+aria_dreptunghiului = aria(10,5)
+print(aria_dreptunghiului)
+print('______________________________')
+
+# ex_05 Functie care returneaza aria cercului
+def aria_cercului(raza, pi=3.14):
+    return pi*raza*raza
+cerc = aria_cercului(7)
+print(cerc)
+print('______________________________')
+
+# ex_06 Functie care returneaza True daca un caracter x se gaseste intr-un string dat. False daca nu
+# caracter = input('Introduceti un caracter: ')
+# def char(string):
+#     if caracter  and caracter.upper() in string:
+#         return True
+#     else:
+#         return False
+# cuvant = char('Tema_05')
+# print(cuvant)
+# print('______________________________')
+
+# ex_07 Functie fara return, primeste un string si printeaza pe ecran:
+# -	Nr de caractere lower case este x
+# -	Nr de caractere upper case este y
+
+def char_nr(str):
+    min = 0
+    maj = 0
+    for x in str:
+        if x.islower():
+            min += 1
+        elif x.isupper():
+            maj += 1
+    print(f'Numarul de caractere lower case este {min}')
+    print(f'Numarul de caractere upper case este  {maj}')
+char_nr('Bine ati venit la ITF !')
+print('______________________________')
+
+# ex_08 Functie care primeste o LISTA de numere si returneaza o LISTA doar cu numerele pozitive
+def numPoz(nr):
+    nrPoz = []
+    for x in nr:
+        if x >= 0:
+            nrPoz.append(x)
+    return nrPoz
+print(numPoz([7, 6, -8, -1]))
+print('______________________________')
+
+# ex_09 Functie care nu retunraza nimic. Primeste 2 numere si PRINTEAZA
+# -	Primul numar x este mai mare decat al doilea nr y
+# -	Al doilea nr y este mai mare decat primul nr x
+# -	Numerele sunt egale.
+def printeaza(x,y):
+    if x > y:
+        print(f"Primul numar {x} este mai mare decat al doilea nr {y}")
+    elif x <y:
+        print(f"Al doilea nr {y} este mai mare decat primul nr {x}")
+    else:
+        print(f"Numarul {x} si {y} sunt egale")
+printeaza(4,6)
+print('______________________________')
+
+# ex_10 Functie care primeste un numar si un set de numere.
+# Printeaza ‘am adaugat numarul nou in set’ + returneaza True
+# Sau Printeaza ‘nu am adaugat numarul in set. Acesta exista deja’ + returneaza False
+def nrSet(nr,setNr):
+    if nr in setNr:
+        print("nu am adaugat numarul in set. Acesta exista deja")
+        return False
+    else:
+        print("am adaugat numarul nou in set")
+        return True
+nrSet(6,[1,2,3,4,5,])
+print('______________________________')
+ 235
+intro/intalnirea_6/tema_6.py
+@@ -0,0 +1,235 @@
+from datetime import date
+
+#ex_1.  Clasa Cerc
+# Atribute: raza, culoare
+#
+# Constructor pt ambele atribute
+#
+# Metode:
+# descrie_cerc() - va PRINTA culoarea si raza
+# aria() - va RETURNA aria
+# diametru()
+# circumferinta()
+
+
+class Cerc:
+    raza = 1
+    culoare = "verde"
+
+    def __init__(self, raza, culoare):
+        self.raza = raza
+        self.culoare = culoare
+
+
+    def descrie_cerc(self):
+        print(f"{self.raza} {self.culoare}")
+
+    def aria(self, raza):
+        self.raza = raza
+        return self.raza**2*3.14
+
+    def diametru(self,raza):
+        self.raza = raza
+        return 2*self.raza*3.14
+
+
+cerc_nou = Cerc(5,"negru")
+print(cerc_nou.aria(1))
+print(cerc_nou.diametru(1))
+print("--------------------------")
+
+# ex_2. Clasa Dreptunghi
+# Atribute: lungime, latime, culoare
+# Constructor pt toate atributele
+# Metode:
+# descrie() va PRINTA lungime, latime, culoare
+# aria()
+# perimetrul()
+# schimba_culoarea(noua_culoare) - aceasta metoda nu returneaza nimic.
+# Ea va lua ca si param o noua culoare si va suprascrie atributul self.culoare. Puteti verifica schimbarea culorii prin apelarea metodei descrie().
+
+
+class Dreptungi:
+    lungime = 0
+    latime = 0
+    culoare = "alba"
+
+    def __init__(self,lungime,latime,culoare):
+        self.lungime = lungime
+        self.latime = latime
+        self.culoare = culoare
+
+    def descriere(self):
+        print(f"Avem lungimea de {self.lungime}  cu latimea de {self.latime} si culoarea {self.culoare}")
+
+    def aria(self,lungime,latime):
+        self.lungime = lungime
+        self.latime = latime
+        formula = self.lungime * self.latime
+        return formula
+
+    def perimetru(self,lungime,latime):
+        self.lungime = lungime
+        self.latime = latime
+        formula = 2 * self.lungime + 2 * self.latime
+        return formula
+
+    def schimba_culoarea(self,culoare):
+        self.culoare = culoare
+        return f"Ti-ai schimbat culoarea in {self.culoare}"
+
+
+drept = Dreptungi(4,9,"galben")
+print(drept.aria(4,6))
+print(drept.perimetru(4,6))
+print(drept.schimba_culoarea("albastru"))
+print(drept.descriere())
+print("--------------------------")
+
+# ex_3. Clasa Angajat
+# Atribute: nume, prenume, salariu
+# Constructor() pt toate atributele // constructor reprezinta __init__
+# Metode:
+# descrie() print nume, prenume, salariu
+# nume_complet()
+# salariu_lunar()
+# salariu_anual()
+# marire_salariu(procent)
+
+
+class Angajat:
+    nume = None
+    prenume = None
+    salariu = None
+
+    def __init__(self,nume,prenume,salariu):
+        self.nume = nume
+        self.prenume = prenume
+        self.salariu = salariu
+
+    def descriere(self):
+        print(f" {self.nume}  {self.prenume} are salariul de {self.salariu}")
+
+    def nume_complet(self,nume,prenume):
+        self.nume = nume
+        self.prenume = prenume
+        formula = self.nume + " " + self.prenume
+        return formula
+
+    def salariu_lunar(self,salariu):
+        self.salariu = salariu
+        return self.salariu
+
+    def salariu_anual(self):
+        formula = self.salariu * 12
+        return formula
+
+    def marire_de_salariu(self,procent):
+        self.procent = procent
+        self.salariu = self.salariu + (self.salariu * procent / 100)
+        return self.salariu
+
+angajat1 = Angajat("Ghiurco","Cristi", 1000)
+print(angajat1.nume_complet("Ghiurco", "Cristi"))
+print(angajat1.descriere())
+print(angajat1.marire_de_salariu(30))
+print("--------------------------")
+
+# ex_4. Clasa Factura
+# Atribute: seria (va fi constanta, nu trebuie constructor, toate facturile vor avea aceeasi serie), numar, nume_produs, cantitate, pret_buc
+# Constructor: toate atributele, fara serie
+# Metode:
+# schimba_cantitatea(cantitate)
+# schimba_pretul(pret)
+# schimba_nume_produs(nume)
+# genereaza_factura() - va printa tabelar daca reusiti
+# Factura seria x numar y
+# Data: generati automat data de azi
+# Produs | cantitate | pret bucata | Total “
+# Telefon |      7       |       700       | 49000
+#
+# Indiciu pt data: https://www.geeksforgeeks.org/get-current-date-using-python/
+
+class Factura:
+    seria = "SER"
+    numar = None
+    nume_produs = None
+    cantitate = None
+    pret_buc = None
+
+    def __init__(self, numar, nume_produs, cantitate, pret_buc):
+        self.numar = numar
+        self.nume_produs = nume_produs
+        self.cantitate = cantitate
+        self.pret_buc = pret_buc
+
+    def schimba_cantitatea(self, cantitate):
+        self.cantitate = cantitate
+        return f"Acum ai cantitatea de {self.cantitate}"
+
+    def schimba_pretul(self, pret_buc):
+        self.pret_buc = pret_buc
+        return f"Noul tau pret este {self.pret_buc}"
+
+    def schimba_nume_produs(self, nume_produs):
+        self.nume_produs = nume_produs
+        return f"Noul tau nume al produsului este {self.nume_produs}"
+
+    def genereaza_factura(self):
+        self.data = date.today()
+        self.total = self.cantitate * self.pret_buc
+        return f""" 
+            Factura seria {self.seria} numar {self.numar}
+                     {self.data}            
+        Produs | cantitate  | pret bucata | Total 
+         {self.nume_produs}|     {self.cantitate}    |      {self.pret_buc}      |  {self.total}"""
+
+
+factura1 = Factura(125, "curent", 190, 6)
+print(factura1.genereaza_factura())
+print("--------------------------")
+
+# 5. Clasa Cont
+# Atribute: iban, titular_cont, sold
+# Constructor pentru toate
+# Metode:
+# afisare_sold() - Titularul x are in contul y suma de n lei
+# debitare_cont(suma)
+# creditare_cont(suma)
+
+class Cont:
+    iban = None
+    titular_cont = None
+    sold = None
+
+    def __init__(self,iban,titular_cont,sold):
+        self.iban = iban
+        self.titular_cont = titular_cont
+        self.sold = sold
+
+
+    def afisare_sold(self):
+        return f"Titularul {self.titular_cont} are in contul {self.iban} suma de {self.sold} lei"
+
+    def debitare_cont(self, suma):
+        self.suma = suma
+        self.sold = self.sold + self.suma
+        return f"Ai alimentat cu {self.suma} de lei"
+
+    def creditare_cont(self,suma):
+        self.suma = suma
+        if self.suma <= self.sold:
+            self.sold = self.sold - self.suma
+            return f"A-ti retras suma de  {self.suma} de lei"
+        else:
+            return "Nu ai suficienti bani in cont"
+
+
+
+cristi = Cont("RO7500", "Ghiurco Cristi",47000)
+print(cristi.afisare_sold())
+print(cristi.debitare_cont(20000))
+print(cristi.afisare_sold())
+print(cristi.creditare_cont(10000))
+print(cristi.afisare_sold())
+print("--------------------------")
+ 95
+intro/intalnirea_7/tema_7.py
+@@ -0,0 +1,95 @@
+from abc import ABC, abstractmethod
+class FormaGeometrica(ABC):
+    pi = 3.14
+
+    @abstractmethod
+    def aria(self):
+        pass
+
+    def descrie(self):
+        print("Cel mai probabil am colturi")
+
+
+class Patrat(FormaGeometrica):
+
+
+    def __init__(self, latura):
+        self.__latura = latura
+
+    @property
+    def latura(self):
+        return self.__latura
+
+    @latura.getter
+    def latura(self):
+        print(f'Latura este {self.__latura}')
+
+    @latura.setter
+    def latura(self, latura):
+        print(f'Noua latura este  {latura}')
+        self.__latura = latura
+
+    @latura.deleter
+    def latura(self):
+        print('Am sters latura')
+        self.__latura = None
+
+    def aria(self):
+        if self.__latura == None:
+            print("Pentru a calcula aria iti trebuie o latura valida")
+        else:
+            aria = self.__latura * self.__latura
+            print(f'Aria patratului este {aria}')
+
+
+class Cerc(FormaGeometrica):
+
+    def __init__(self, __raza):
+        self.__raza = __raza
+
+    @property
+    def raza(self):
+        return self.__raza
+
+    @raza.getter
+    def raza(self):
+        print(f'Raza ta este {self.__raza} ')
+        return self.__raza
+
+    @raza.setter
+    def raza(self, raza):
+        self.__raza = raza
+        print(f'Noua raza este {raza}')
+        return self.__raza
+
+    @raza.deleter
+    def raza(self):
+        print('Am sters raza')
+        self.__raza = None
+
+    def aria(self):
+        if self.__raza == None:
+            print("Pentru a calcula aria iti trebuie o raza valida")
+        else:
+            raza = FormaGeometrica.pi * self.__raza * self.__raza
+            print(f"Raza cercului este {raza}")
+
+    def descrie(self):
+        print("Sunt un cerc...nu am colturi")
+
+patrat1 = Patrat(2)
+patrat1.latura = 4
+patrat1.aria()
+patrat1.descrie()
+del patrat1.latura
+patrat1.aria()
+
+print("---------------")
+
+cerc1 = Cerc(2)
+cerc1.raza
+cerc1.raza = 3
+del cerc1.raza
+cerc1.descrie()
+cerc1.aria()
+cerc1.raza = 2
+ 33
+intro/liste.py
+@@ -0,0 +1,33 @@
+#listele in python pot sa cuprinda elemente de tipuri diferite
+# au dimensiune dinamica
+fructe=['mar', 'banana', 'portocama', '3', True, '3']
+
+#afisam o lista
+print(fructe)
+
+#accesam un element in f de index
+print(fructe[1])
+
+#adaugam un nou element
+fructe.append('rosie')
+
+#suprascriem un element
+fructe[0]='para'
+
+#afisam lista
+print(fructe)
+
+#dimensiune unei liste
+print(len(fructe))
+
+#scoate si ne returneaza ultimul element
+last=fructe.pop()
+print('ultimul element: ', last)
+print('lista: ', fructe)
+
+#de cate ori apare un elem
+print(fructe.count(3))
+
+fructe_exotice=['ananas', 'kiwi']
+fructe.extend(fructe_exotice)
+print(fructe)
+ 16
+intro/main.py
+@@ -0,0 +1,16 @@
+# This is a sample Python script.
+
+# Press Maj+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+
+def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+ 0
+intro/oop/__init__.py
+Empty file.
+ BIN +145 Bytes
+intro/oop/__pycache__/__init__.cpython-310.pyc
+Binary file not shown.
+ BIN +1.75 KB
+intro/oop/__pycache__/contbancar.cpython-310.pyc
+Binary file not shown.
+ 22
+intro/oop/cont main.py
+@@ -0,0 +1,22 @@
+from oop.contbancar import ContBancar
+
+cont1=ContBancar('Cristi G', 'RO001')
+cont2=ContBancar('Ramona G', 'RO002')
+
+cont1.activareCont(7777)
+cont2.activareCont(3333)
+cont2.activareCont(7777)
+
+cont1.alimentareCont(300)
+cont2.alimentareCont(700)
+cont2.alimentareCont(300)
+
+cont1.plataCard(500)
+cont1.plataCard(300)
+cont2.plataCard(100)
+cont2.plataCard(200)
+
+
+cont1.interogareSold()
+cont2.interogareSold()
+
+ 46
+intro/oop/contbancar.py
+@@ -0,0 +1,46 @@
+class ContBancar:
+    #constructorul
+    def __init__(self, titularCont, iban):
+        self.titularCont=titularCont
+        self.iban=iban
+        self.sold=0
+        self.activ=False
+        self.PIN=7777
+        self.incercari_activare=0
+
+    def interogareSold(self):
+        print(f'Titular {self.titularCont}')
+        print(f' IBAN {self.iban}')
+        print(f'Sold {self.sold}')
+        print(f'Activ {self.activ}')
+        print(f'Nr de incercari  {self.incercari_activare}')
+        print('_________________________________')
+
+    def activareCont(self, pin_utilizator):
+        self.salut()
+        if pin_utilizator==self.PIN:
+            self.activ=True
+        else:
+            print('PIN gresit ! ')
+            self.incercari_activare=self.incercari_activare+1
+            #self.incercari_activare+=1
+
+    def alimentareCont(self, suma):
+        print(f'Buna {self.titularCont}')
+        self.sold+=suma
+        print(f'Ati alimentat {suma}')
+        print(f'Aveti in cont {self.sold}')
+
+    def plataCard(self, suma):
+        self.salut()
+        if suma<= self.sold:
+            self.sold-=suma  #(scadem suma din sold)
+            print(f'Ati cheltuit {suma}')
+            print(f'Aveti in cont {self.sold}')
+        else:
+            print('Fonduri insuficiente')
+
+
+    def salut(self):
+        print(f'Buna {self.titularCont}')
+
+ 20
+intro/operatori.py
+@@ -0,0 +1,20 @@
+# Operatori:
+#aritmetici : +, - , / , * , %
+#de comparare: >, <, ==, !=, <=, >=
+#logici: and, or, !
+
+a=3
+b=5
+
+print(a+b) # 3+5=>8
+print(a==b) #a este egal cu b? =? False
+print(a<b and a <4)  #True si True => True
+print(a<b or a <2)  #True sau False => True
+
+#cu mama sau tata sau (bunicul si bunica)
+mama=True
+tata=True
+bunicul=False
+bunica=False
+print(mama or tata or (bunicul and bunica))
+
+ 26
+intro/variabile.py
+@@ -0,0 +1,26 @@
+#variabila= zona din memorie care tine date
+#variabila= cutiuta in care punem valori
+
+#am declarat si initializat variabila 'marca'
+marca_masina='Volvo'
+model_masina='XC 60'
+
+#nu putem sa punem spatiu in numele variabilei
+#o variabila incepe cu litera mica
+
+print(f'Am cumparat o masina marca :{marca_masina}')
+print(f'Este modelul : {model_masina}')
+
+#suprascriere (overwrite)
+model_masina ='XC 60 facelift'
+
+print(f'Am cumparat o masina marca :{marca_masina}')
+print(f'Este modelul : {model_masina}')
+
+nume='dumitru'
+prenume='Daniel'
+varsta=333
+print(prenume + ' ' + nume)
+print(f'{prenume} {nume} are varsta de {varsta}')
+
+
+ 12
+intro/while.py
+@@ -0,0 +1,12 @@
+#while-loop, ciclu repetitiv
+#zona de cod care se repeta atat timp cat o conditie e True
+# problema: masina merge cat timp inaca are benzina
+litri_benzina=10
+while litri_benzina>0:
+    #accelaram
+    print('Vruum Vruum')
+    #scadem benzina
+    litri_benzina=litri_benzina-1
+    if litri_benzina<=3:
+        print('beculetul rosu')
+print('STOP !')
